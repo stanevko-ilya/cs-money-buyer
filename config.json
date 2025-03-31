@@ -1,0 +1,5 @@
+{
+    "requestLimit": 60,
+    "priceRUB": { "min": 500, "max": 100000 },
+    "disscount_percent": 25
+}
