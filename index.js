@@ -11,7 +11,7 @@ async function getExchangeRate() {
 async function getItems(offset=0) {
     const rub_usd = await getExchangeRate();
     // https://cs.money/1.0/market/sell-orders?limit=60&offset=0&minPrice=5.780346820809249&isStatTrak=false&hasKeychains=false&isSouvenir=false&rarity=Industrial%20Grade&rarity=Mil-Spec%20Grade&rarity=Restricted&rarity=Classified&rarity=Covert&order=desc&sort=discount
-    const url = `https://cs.money/1.0/market/sell-orders?limit=${config.requestLimit}&offset=${offset}&minPrice=${config.priceRUB.min/rub_usd}&maxPrice=${config.priceRUB.max/rub_usd}&isStatTrak=false&hasStickers=false&hasKeychains=false&isSouvenir=false&rarity=Industrial%20Grade&rarity=Mil-Spec%20Grade&rarity=Restricted&rarity=Classified&rarity=Covert&order=desc&sort=discount`;
+    const url = `https://cs.money/1.0/market/sell-orders?limit=${config.requestLimit}&offset=${offset}&minPrice=${config.priceRUB.min/rub_usd}&maxPrice=${config.priceRUB.max/rub_usd}&type=2&type=13&type=5&type=6&type=3&type=4&type=7&type=8&isStatTrak=false&hasKeychains=false&isSouvenir=false&rarity=Mil-Spec Grade&rarity=Restricted&rarity=Classified&rarity=Covert&order=desc&sort=discount`;
     const request = await rp(url, { json: true });
     return request?.items || [];
 }
